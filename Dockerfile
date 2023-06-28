@@ -19,7 +19,7 @@ RUN R -e "install.packages('pak')" \
 RUN wget -O ss https://github.com/nmfs-stock-synthesis/stock-synthesis/releases/latest/download/ss_linux \
 && sudo chmod a+x ss
 
-RUN R -e "getwd()" \
+RUN R -e "getwd()"
 
 ## && wget https://github.com/nmfs-stock-synthesis/user-examples/archive/refs/heads/main.zip
 ## && sudo unzip main.zip

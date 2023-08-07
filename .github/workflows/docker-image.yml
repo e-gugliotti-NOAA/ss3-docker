@@ -16,7 +16,4 @@ jobs:
     steps:
     - uses: actions/checkout@v3
     - name: Build the Docker image
-      run: docker build . --file Dockerfile --tag ghcr.io/e-gugliotti-noaa/ss3-docker:latest && docker login ghcr.io -u $CR_USERNAME -p $CR_PAT && docker push ghcr.io/e-gugliotti-noaa/ss3-docker:latest
-      env:
-        CR_PAT: ${{ secrets.CONTAINER_TOKEN }}
-        CR_USERNAME: ${{ secrets.USERNAME_TOKEN }}
+      run: docker build . --file Dockerfile --tag ghcr.io/e-gugliotti-noaa/ss3-docker:latest && echo ${{ secrets.CONTAINER_TOKEN }} | docker login -u ${{ github.repository_owner }} --password-stdin ghcr.io && docker push ghcr.io/e-gugliotti-noaa/ss3-docker:latest

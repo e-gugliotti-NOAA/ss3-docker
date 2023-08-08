@@ -25,7 +25,7 @@ jobs:
         # list of Docker images to use as base name for tags
         images: |
           egugliotti/ss3-docker
-          ghcr.io/username/app
+          ghcr.io/e-gugliotti-noaa/ss3-docker
         # generate Docker tags based on the following events/attributes
         tags: |
           # type=ref,event=branch

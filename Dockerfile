@@ -1,10 +1,10 @@
 FROM rocker/rstudio:4
 
-RUN apt-get update \
+# RUN apt-get update \
     # && apt-get install -y make gcc g++ cmake clang git libssl-dev libxml2 libxml2-dev openssl sudo wget curl \
-    && apt-get install --assume-yes make gcc g++ cmake clang git libssl-dev libxml2 libxml2-dev openssl sudo wget curl \
-    && apt-get clean \
-    && rm -rf /var/lib/apt/lists/
+    # && apt-get install --assume-yes make gcc g++ cmake clang git libssl-dev libxml2 libxml2-dev openssl sudo wget curl \
+    # && apt-get clean \
+    # && rm -rf /var/lib/apt/lists/
 
 # set CRAN repo to the RStudio mirror
 # RUN echo "options(repos = c(CRAN = 'https://cran.rstudio.com/'))" >> /usr/local/lib/R/etc/Rprofile.site

@@ -18,22 +18,6 @@ jobs:
     steps:
     - uses: actions/checkout@v3
 
-    - name: Docker meta
-      id: meta
-      uses: docker/metadata-action@v4
-      with:
-        images: |
-          egugliotti/ss3-docker
-          ghcr.io/e-gugliotti-noaa/ss3-docker
-        # generate Docker tags based on the following events/attributes
-        tags: |
-          type=ref,event=branch
-          type=ref,event=pr
-#          type=semver,pattern={{version}}
-#          type=semver,pattern={{major}}.{{minor}}
-#          type=semver,pattern={{major}}
-          type=sha
-
     - name: Login to Docker Hub
       uses: docker/login-action@v1
       with:
@@ -46,7 +30,15 @@ jobs:
         registry: ghcr.io
         username: ${{ github.actor }}
         password: ${{ secrets.GITHUB_TOKEN }}
-    
+
+    - name: Docker meta
+      id: meta
+      uses: docker/metadata-action@v4
+      with:
+        images: |
+          egugliotti/ss3-docker
+          ghcr.io/e-gugliotti-noaa/ss3-docker
+
     #- name: Build the Docker image
       #run: docker build . --file Dockerfile --tag ghcr.io/e-gugliotti-noaa/ss3-docker:latest
         

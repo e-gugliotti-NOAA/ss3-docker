@@ -18,15 +18,13 @@ jobs:
     steps:
     - uses: actions/checkout@v3
 
-
-
     - name: Docker meta
       id: meta
       uses: docker/metadata-action@v4
       with:
         # list of Docker images to use as base name for tags
         images: |
-          name/app
+          egugliotti/ss3-docker
           ghcr.io/username/app
         # generate Docker tags based on the following events/attributes
         tags: |
